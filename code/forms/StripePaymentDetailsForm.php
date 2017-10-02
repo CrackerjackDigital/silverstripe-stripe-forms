@@ -6,7 +6,7 @@ use \Stripe\Customer as StripeCustomer;
 /**
  * A form that allows the user to enter their card details and
  * save them "into" stripe.
- *  
+ *
  * The end user enters their credit card details and when the
  * form is submitted, they are pushed to Stripe via the API.
  * The form is then pre-populated with summary details of the
@@ -22,7 +22,7 @@ use \Stripe\Customer as StripeCustomer;
  */
 class StripePaymentDetailsForm extends Form
 {
-    
+
     /**
      * Config variable to specify if we want to use custom JS.
      * Enabling this will disable all requirements calls
@@ -31,7 +31,7 @@ class StripePaymentDetailsForm extends Form
      * @config
      */
     private static $use_custom_js = false;
-    
+
     public function __construct($controller, $name = "StripePaymentDetailsForm")
     {
         $publish_key = StripeForms::publish_key();
@@ -46,17 +46,17 @@ class StripePaymentDetailsForm extends Form
                 HiddenField::create("CardType"),
                 TextField::create("CardNumber")
                     ->setAttribute("name", "")
-                    ->setAttribute("data-stripe", "number"),
-                TextField::create("ExpirationMonth", "Experation Month (MM)")
+                    ->setAttribute("data-stripe", _t('StripePaymentDetailsForm.CardNumber.Label', 'number')),
+                TextField::create("ExpirationMonth", _t( 'StripePaymentDetailsForm.ExpirationMonth.Label', "Expiration Month (MM)"))
                     ->setAttribute("name", "")
                     ->setAttribute("data-stripe", "exp_month"),
-                TextField::create("ExpirationYear", "Experation Year (YYYY)")
+                TextField::create("ExpirationYear", _t( 'StripePaymentDetailsForm.ExpirationYear.Label', "Expiration Year (YYYY)"))
                     ->setAttribute("name", "")
                     ->setAttribute("data-stripe", "exp_year"),
                 TextField::create("CVC")
                     ->setAttribute("name", "")
                     ->setAttribute("data-stripe", "cvc"),
-                TextField::create("BillingZip", "Billing Zip/Post Code")
+                TextField::create("BillingZip", _t( 'StripePaymentDetailsForm.BillingZipPostal.Label', "Billing Zip/Post Code"))
                     ->setAttribute("name", "")
                     ->setAttribute("data-stripe", "address_zip")
             ),
@@ -95,7 +95,7 @@ class StripePaymentDetailsForm extends Form
 
     /**
      * Get the card details from stripe for the current user
-     * 
+     *
      * @return ArrayData | null
      */
     protected function get_card_details()
@@ -115,7 +115,7 @@ class StripePaymentDetailsForm extends Form
             ));
         }
     }
- 
+
     /**
      * Save stripe payment details against a customer
      *

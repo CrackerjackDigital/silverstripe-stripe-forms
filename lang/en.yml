@@ -1,0 +1,10 @@
+en:
+  StripePaymentDetailsForm:
+    CardNumber:
+      Label: 'Card Number'
+    ExpirationMonth:
+      Label: 'Expiration Month (MM)'
+    ExpirationYear:
+      Label: 'Expiration Year (YYYY)'
+    BillingZipPostal:
+      Label: 'Billing Zip/Post Code'
