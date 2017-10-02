@@ -1,5 +1,5 @@
 {
-  "name": "i-lateral/silverstripe-stripe-forms",
+  "name": "crackerjackdigital/silverstripe-stripe-forms",
   "description": "Add Stripe subscriptions and payment forms to your Silverstripe website",
     "type": "silverstripe-module",
     "homepage": "http://github.com/i-lateral/silverstripe-stripe-forms",
